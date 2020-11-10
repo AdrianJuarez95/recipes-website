@@ -1,0 +1,19 @@
+<div class="mb-4">
+  <h4 class="mt-5">¡Bienvenido/a a nuestra página de recetas!</h4>
+  <button class="btn btn-success mt-4 ml-4" (click)="goForward()">
+    Pincha aquí para empezar a buscar
+  </button>
+</div>
+
+<div class="container w-50 mt-5 mb-4">
+  <ngb-carousel #carousel [interval]="2000">
+    <ng-template ngbSlide *ngFor="let img of images; index as i">
+      <div class="carousel-caption" [routerLink]="['/recipes', imgRoute[i]]">
+        <h3>{{imgTitle[i]}}</h3>
+      </div>
+      <div class="picsum-img-wrapper text-center" [routerLink]="['/recipes', imgRoute[i]]">
+        <img [src]="img" alt="{{imgTitle[i]}}" class="rounded-lg">
+      </div>
+    </ng-template>
+  </ngb-carousel>
+</div>
